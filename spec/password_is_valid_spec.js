@@ -1,0 +1,1 @@
+const {passwordIsValid} = require("../src/password_checker")
