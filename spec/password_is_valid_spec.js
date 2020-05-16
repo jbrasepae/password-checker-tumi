@@ -5,7 +5,7 @@ describe("passwordIsValid",function(){
         expect(function() {passwordIsValid(null)}).toThrow(new Error("password should exist"))
     })
     it('should be longer than 8 characters', function(){
-        expect(function() {passwordIsValid("tumi")}).toThrow(new Error("it should be longer than 8 character"))
+        expect(function() {passwordIsValid("tumi")}).toThrow(new Error("it should have longer than 8 character"))
     })
     it('should have atleast one lowercase letter', function(){
         expect(function() {passwordIsValid("TUMIIIIII")}).toThrow(new Error("it should have atleast one lowercase letter"))
@@ -18,5 +18,8 @@ describe("passwordIsValid",function(){
     })
     it('should have atleast one special character', function(){
         expect(function() {passwordIsValid("Tumiee27")}).toThrow(new Error("it should have atleast one special character"))
+    })
+    it('should test if password is valid',function(){
+        expect(passwordIsValid("Tumie@27")).toBe("password is valid")
     })
 })

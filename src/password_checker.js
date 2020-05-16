@@ -1,65 +1,69 @@
 function passwordIsValid(password) {
-  //const regex1 = null;
-  const regex2 = /.{8,}/;
-  const regex3 = /[a-z]/g;
-  const regex4 = /[A-Z]/g;
-  const regex5 = /\d/g;
-  const regex6 = /\W/g;
+  const len = /.{8,}/;
+  const lowercase = /[a-z]/g;
+  const uppercase = /[A-Z]/g;
+  const digit = /\d/g;
+  const specialChar = /\W/g;
 
   if (password == null) {
     throw Error("password should exist");
   }
-  if (!password.match(regex2)) {
-    throw Error("it should be longer than 8 character");
+  if (!password.match(len)) {
+    throw Error("it should have longer than 8 character");
   }
-  if (!password.match(regex3)) {
+  if (!password.match(lowercase)) {
     throw Error("it should have atleast one lowercase letter");
   }
-  if (!password.match(regex4)) {
+  if (!password.match(uppercase)) {
     throw Error("it should have atleast one uppercase letter");
   }
-  if (!password.match(regex5)) {
+  if (!password.match(digit)) {
     throw Error("it should have atleast one digit");
   }
-  if (!password.match(regex6)) {
+  if (!password.match(specialChar)) {
     throw Error("it should have atleast one special character");
   }
   if (
-    password.match(regex2) &&
-    password.match(regex3) &&
-    password.match(regex4) &&
-    password.match(regex5) &&
-    password.match(regex6)
+    password.match(len) &&
+    password.match(lowercase) &&
+    password.match(uppercase) &&
+    password.match(digit) &&
+    password.match(specialChar)
   ) {
-    console.log("password is valid");
+    return("password is valid");
   }
-  //const regex = /(?=.*[a-z])(?=.*[\d])(?=.*[A-Z])(?=.*[@!#$%^&*?])(.{8,})/g
-  //return regex.test(password)
 }
-passwordIsValid("Tumie@2sz");
-module.exports = {passwordIsValid};
+console.log(passwordIsValid("Tumie@27nm"))
 
-// function passwordIsOk(password) {
-//   let passed = 0;
-//   if (
-//     password.match(/.{8,}/) &&
-//     password.match(/[a-z]/g) &&
-//     password.match(/[A-Z]/g) &&
-//     password.match(/\d/g) &&
-//     password.match(/[@!#$%^&*?]/)
-//   ){
-//       passed += 1;
-//   } 
-// //return true;
-//   if (passed > 3){
-//       return true
-//   }
-//   if(!password.match(/.{8,}/)) {
-//     console.log("password is never ok");
-//   } 
-// else {
-//     return false;
-//   }
-// }
-// console.log(passwordIsOk(""));
-// module.exports = { passwordIsOk };
+function passwordIsOk(password) {
+  const len = /.{8,}/;
+  const lowercase = /[a-z]/g;
+  const uppercase = /[A-Z]/g;
+  const digit = /\d/g;
+  const specialChar = /\W/g;
+  let strength = 0;
+
+  if (password.match(len)) {
+    strength += 1;
+  }
+  if (password.match(lowercase)) {
+    strength += 1;
+  }
+  if (password.match(uppercase)) {
+    strength += 1;
+  }
+  if (password.match(digit)) {
+    strength += 1;
+  }
+  if (password.match(specialChar)) {
+    strength += 1;
+  }
+  if (strength < 3 || !password.match(len) || password == null) {
+    return false;//"password is never okay";
+  }
+  else{
+  return true;
+  }
+}
+console.log(passwordIsOk("Te@"));
+module.exports = {passwordIsValid, passwordIsOk };
