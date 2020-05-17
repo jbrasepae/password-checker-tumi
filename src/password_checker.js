@@ -33,7 +33,7 @@ function passwordIsValid(password) {
     return("password is valid");
   }
 }
-console.log(passwordIsValid("Tumie@27nm"))
+console.log(passwordIsValid("Tumie@boi2"))
 
 function passwordIsOk(password) {
   const len = /.{8,}/;
@@ -58,12 +58,12 @@ function passwordIsOk(password) {
   if (password.match(specialChar)) {
     strength += 1;
   }
-  if (strength < 3 || !password.match(len) || password == null) {
-    return false;//"password is never okay";
+  if (strength < 3 || !password.match(len)) {
+    return false;
   }
   else{
   return true;
   }
 }
-console.log(passwordIsOk("Te@"));
+console.log(passwordIsOk("boitymellow2"));
 module.exports = {passwordIsValid, passwordIsOk };
