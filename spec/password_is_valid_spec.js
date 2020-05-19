@@ -8,18 +8,18 @@ describe("passwordIsValid",function(){
         expect(function() {passwordIsValid("tumi")}).toThrow(new Error("it should have longer than 8 character"))
     })
     it('should have atleast one lowercase letter', function(){
-        expect(function() {passwordIsValid("TUMIIIIII")}).toThrow(new Error("it should have atleast one lowercase letter"))
+        expect(function() {passwordIsValid("TUMIIIIIIBOI")}).toThrow(new Error("it should have atleast one lowercase letter"))
     })
     it('should have atleast one uppercase letter', function(){
-        expect(function() {passwordIsValid("tummiiie")}).toThrow(new Error("it should have atleast one uppercase letter"))
+        expect(function() {passwordIsValid("tummiiiebo")}).toThrow(new Error("it should have atleast one uppercase letter"))
     })
     it('should have atleast one digit', function(){
-        expect(function() {passwordIsValid("Tumiee@y")}).toThrow(new Error("it should have atleast one digit"))
+        expect(function() {passwordIsValid("Tumiee@yboi")}).toThrow(new Error("it should have atleast one digit"))
     })
     it('should have atleast one special character', function(){
-        expect(function() {passwordIsValid("Tumiee27")}).toThrow(new Error("it should have atleast one special character"))
+        expect(function() {passwordIsValid("Tumiee27bboi")}).toThrow(new Error("it should have atleast one special character"))
     })
     it('should test if password is valid',function(){
-        expect(passwordIsValid("Tumie@27")).toBe("password is valid")
+        expect(passwordIsValid("Tumieboity@27")).toBe("password is valid")
     })
 })

@@ -1,5 +1,5 @@
 function passwordIsValid(password) {
-  const len = /.{8,}/;
+  const len = /.{9,}/;
   const lowercase = /[a-z]/g;
   const uppercase = /[A-Z]/g;
   const digit = /\d/g;
@@ -36,29 +36,33 @@ function passwordIsValid(password) {
 console.log(passwordIsValid("Tumie@boi2"))
 
 function passwordIsOk(password) {
-  const len = /.{8,}/;
+  const len = /.{9,}/;
   const lowercase = /[a-z]/g;
   const uppercase = /[A-Z]/g;
   const digit = /\d/g;
   const specialChar = /\W/g;
-  let strength = 0;
+  let passwordStrength = 0;
+
+  if(password != ""){
+    passwordStrength += 1;
+  }
 
   if (password.match(len)) {
-    strength += 1;
+    passwordStrength += 1;
   }
   if (password.match(lowercase)) {
-    strength += 1;
+    passwordStrength += 1;
   }
   if (password.match(uppercase)) {
-    strength += 1;
+    passwordStrength += 1;
   }
   if (password.match(digit)) {
-    strength += 1;
+    passwordStrength += 1;
   }
   if (password.match(specialChar)) {
-    strength += 1;
+    passwordStrength += 1;
   }
-  if (strength < 3 || !password.match(len)) {
+  if (passwordStrength < 3 || !password.match(len)) {
     return false;
   }
   else{
