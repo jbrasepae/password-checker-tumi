@@ -2,7 +2,7 @@ function passwordIsValid(password) {
   const len = /.{9,}/;
   const lowercase = /[a-z]/g;
   const uppercase = /[A-Z]/g;
-  const digit = /\d/g;
+  const digit = /[0-9]/g;
   const specialChar = /\W/g;
 
   if (password == null) {
@@ -39,30 +39,30 @@ function passwordIsOk(password) {
   const len = /.{9,}/;
   const lowercase = /[a-z]/g;
   const uppercase = /[A-Z]/g;
-  const digit = /\d/g;
+  const digit = /[0-9]/g;
   const specialChar = /\W/g;
-  let passwordStrength = 0;
+  let conditionMet = 0;
 
   if(password != ""){
-    passwordStrength += 1;
+    conditionMet += 1;
   }
 
   if (password.match(len)) {
-    passwordStrength += 1;
+    conditionMet += 1;
   }
   if (password.match(lowercase)) {
-    passwordStrength += 1;
+    conditionMet += 1;
   }
   if (password.match(uppercase)) {
-    passwordStrength += 1;
+    conditionMet += 1;
   }
   if (password.match(digit)) {
-    passwordStrength += 1;
+    conditionMet += 1;
   }
   if (password.match(specialChar)) {
-    passwordStrength += 1;
+    conditionMet += 1;
   }
-  if (passwordStrength < 3 || !password.match(len)) {
+  if (conditionMet < 3 || !password.match(len)) {
     return false;
   }
   else{
